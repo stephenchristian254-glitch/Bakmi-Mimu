@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Bakmi Mimu Carina Sayang - Cita Rasa Legendaris</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakmi Mimu Carina Sayang - Cita Rasa Legendaris</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -119,14 +120,20 @@ nav a:hover::after { width: 100%; }
 .menu-card img {
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: contain; /* KUNCI UTAMA: Tampilkan gambar utuh di dalam bingkai */
-    background-color: #ffffff; /* Latar belakang putih jika ada ruang kosong */
+    object-fit: contain;
+    background-color: #ffffff;
     display: block;
 }
 .menu-card-content { padding: 20px; text-align: left; }
 .menu-card-content h3 { margin: 0 0 10px 0; color: var(--primary-color); font-size: 1.3rem; }
 .menu-card-content p { margin: 0; font-size: 0.95rem; }
 
+/* PERBAIKAN 2: Menu Lengkap ke Tengah */
+.full-menu-image-container {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
 .full-menu-image-container img {
     max-width: 800px; width: 100%; height: auto;
     border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -140,7 +147,7 @@ nav a:hover::after { width: 100%; }
     flex-wrap: wrap;
 }
 .testimonial-images img {
-    width: 350px; /* Lebar tetap untuk konsistensi di desktop */
+    width: 350px;
     height: auto;
     border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
@@ -154,12 +161,12 @@ nav a:hover::after { width: 100%; }
 }
 .gallery-grid img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Bingkai seragam untuk galeri */
-    object-fit: contain; /* KUNCI UTAMA: Tampilkan gambar utuh di dalam bingkai */
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
     border-radius: 12px;
     display: block;
     transition: transform 0.3s ease, filter 0.3s ease;
-    background-color: #ffffff; /* Latar belakang putih jika ada ruang kosong */
+    background-color: #ffffff;
 }
 .gallery-grid img:hover { transform: scale(1.05); filter: brightness(1.1); }
 
@@ -177,7 +184,7 @@ footer {
     text-align: center; padding: 40px 5%;
 }
 
-/* --- RESPONSIVE CSS DIKEMBALIKAN --- */
+/* --- Responsive CSS --- */
 @media (max-width: 992px) {
     header .logo { font-size: 2rem; } 
     h2 { font-size: 2rem; }
@@ -185,8 +192,9 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header { flex-direction: column; gap: 15px; padding: 15px; }
-    header .logo { font-size: 1.8rem; } 
+    header { flex-direction: column; gap: 10px; padding: 15px; }
+    /* PERBAIKAN 1: Kecilkan Judul di HP */
+    header .logo { font-size: 1.5rem; } 
     nav { gap: 15px; flex-wrap: wrap; justify-content: center; } 
     nav a { font-size: 0.9rem; }
     .hero h1 { font-size: 2.5rem; }
@@ -198,7 +206,7 @@ footer {
     
     .testimonial-images { flex-direction: column; align-items: center; }
     .testimonial-images img {
-        width: 100%; /* Lebar penuh di mobile */
+        width: 100%;
         max-width: 400px;
     }
 
