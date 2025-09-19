@@ -2,8 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bakmi Mimu Carina Sayang - Cita Rasa Legendaris</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Bakmi Mimu Carina Sayang - Cita Rasa Legendaris</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,7 +44,7 @@ header {
 }
 header .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; /* Ukuran default untuk desktop */
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--primary-color);
 }
@@ -115,20 +114,16 @@ nav a:hover::after { width: 100%; }
     border-radius: 15px; overflow: hidden;
     width: 280px; box-shadow: 0 5px 25px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Penyesuaian agar gambar menu di tengah */
-    display: flex; /* Aktifkan flexbox untuk centering gambar */
-    flex-direction: column;
-    align-items: center; /* Centering horizontal */
 }
 .menu-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
 .menu-card img {
-    width: 100%; /* Gambar akan mengisi lebar kartu */
-    height: auto; /* TINGGI OTOMATIS agar tidak terpotong */
-    object-fit: contain; /* Memastikan seluruh gambar terlihat */
-    background-color: #f0f0f0; /* Latar belakang jika ada ruang kosong */
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain; /* KUNCI UTAMA: Tampilkan gambar utuh di dalam bingkai */
+    background-color: #ffffff; /* Latar belakang putih jika ada ruang kosong */
     display: block;
 }
-.menu-card-content { padding: 20px; text-align: left; width: 100%; } /* Konten teks mengisi penuh lebar kartu */
+.menu-card-content { padding: 20px; text-align: left; }
 .menu-card-content h3 { margin: 0 0 10px 0; color: var(--primary-color); font-size: 1.3rem; }
 .menu-card-content p { margin: 0; font-size: 0.95rem; }
 
@@ -143,16 +138,12 @@ nav a:hover::after { width: 100%; }
     gap: 30px; 
     justify-content: center; 
     flex-wrap: wrap;
-    align-items: flex-start; /* Untuk menyamakan tinggi baris jika gambar beda tinggi */
 }
 .testimonial-images img {
-    width: auto;
-    max-width: 100%;
-    height: auto; /* TINGGI OTOMATIS agar tidak terpotong */
-    object-fit: contain; /* Memastikan seluruh gambar terlihat */
+    width: 350px; /* Lebar tetap untuk konsistensi di desktop */
+    height: auto;
     border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    background-color: #f0f0f0; /* Latar belakang jika ada ruang kosong */
 }
 .testimonial-images img:hover { transform: scale(1.03); }
 
@@ -160,16 +151,15 @@ nav a:hover::after { width: 100%; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
-    align-items: flex-start; /* Untuk menyamakan tinggi baris jika gambar beda tinggi */
 }
 .gallery-grid img {
     width: 100%;
-    height: auto; /* TINGGI OTOMATIS agar tidak terpotong */
-    object-fit: contain; /* Memastikan seluruh gambar terlihat */
+    aspect-ratio: 4 / 3; /* Bingkai seragam untuk galeri */
+    object-fit: contain; /* KUNCI UTAMA: Tampilkan gambar utuh di dalam bingkai */
     border-radius: 12px;
     display: block;
     transition: transform 0.3s ease, filter 0.3s ease;
-    background-color: #f0f0f0; /* Latar belakang jika ada ruang kosong */
+    background-color: #ffffff; /* Latar belakang putih jika ada ruang kosong */
 }
 .gallery-grid img:hover { transform: scale(1.05); filter: brightness(1.1); }
 
@@ -187,25 +177,18 @@ footer {
     text-align: center; padding: 40px 5%;
 }
 
-/* --- Responsive CSS --- */
+/* --- RESPONSIVE CSS DIKEMBALIKAN --- */
 @media (max-width: 992px) {
     header .logo { font-size: 2rem; } 
     h2 { font-size: 2rem; }
     .section { padding: 60px 5%; }
-    .menu-card { width: calc(50% - 15px); } /* Dua kolom di tablet */
-    .adv-card { width: calc(50% - 15px); }
-    /* Testimonial di tablet, mungkin akan memanjang jika gambar asli tinggi */
-    .testimonial-images img {
-        width: 100%;
-        max-width: 400px; /* Batasi lebar agar tidak terlalu besar di tablet */
-    }
 }
 
 @media (max-width: 768px) {
     header { flex-direction: column; gap: 15px; padding: 15px; }
-    header .logo { font-size: 1.5rem; } 
+    header .logo { font-size: 1.8rem; } 
     nav { gap: 15px; flex-wrap: wrap; justify-content: center; } 
-    nav a { font-size: 0.85rem; }
+    nav a { font-size: 0.9rem; }
     .hero h1 { font-size: 2.5rem; }
     .hero .hero-buttons { flex-direction: column; gap: 15px; }
     .section { padding: 40px 5%; }
@@ -215,16 +198,11 @@ footer {
     
     .testimonial-images { flex-direction: column; align-items: center; }
     .testimonial-images img {
-        width: 100%;
+        width: 100%; /* Lebar penuh di mobile */
         max-width: 400px;
     }
 
     .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-grid img {
-        width: 100%;
-        max-width: 400px; /* Batasi lebar agar tidak terlalu besar di HP */
-    }
-
     .location-content { flex-direction: column; text-align: center; }
     .location-map iframe { height: 300px; }
 }
