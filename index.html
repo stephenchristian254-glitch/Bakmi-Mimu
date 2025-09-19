@@ -128,7 +128,6 @@ nav a:hover::after { width: 100%; }
 .menu-card-content h3 { margin: 0 0 10px 0; color: var(--primary-color); font-size: 1.3rem; }
 .menu-card-content p { margin: 0; font-size: 0.95rem; }
 
-/* PERBAIKAN 2: Menu Lengkap ke Tengah */
 .full-menu-image-container {
     padding-top: 20px;
     display: flex;
@@ -154,21 +153,39 @@ nav a:hover::after { width: 100%; }
 }
 .testimonial-images img:hover { transform: scale(1.03); }
 
+/* --- PERUBAHAN CSS UNTUK GALERI KENIKMATAN --- */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
+    align-items: flex-start; 
 }
-.gallery-grid img {
+.gallery-item { /* Ini adalah div pembungkus untuk setiap gambar */
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: contain;
+    padding-top: 75%; /* Rasio 4:3 (karena 3 / 4 * 100% = 75%) */
+    height: 0; /* Penting untuk teknik padding-top aspect ratio */
+    position: relative; /* Untuk menempatkan gambar absolut di dalamnya */
     border-radius: 12px;
-    display: block;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    background-color: #ffffff;
+    overflow: hidden; /* Pastikan gambar tidak meluber jika lebih besar dari bingkai */
+    background-color: #ffffff; /* Latar belakang putih di bingkai */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.gallery-grid img:hover { transform: scale(1.05); filter: brightness(1.1); }
+.gallery-item img { /* Ini adalah gambar aslinya */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* KUNCI UTAMA: Gambar tidak akan terpotong */
+    object-position: center; /* Posisikan gambar di tengah bingkai */
+    display: block; /* Pastikan gambar sebagai block element */
+}
+.gallery-item:hover { /* Hover effect pada item galeri */
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+/* --- AKHIR PERUBAHAN CSS GALERI KENIKMATAN --- */
 
 
 .location { background-color: var(--footer-bg); }
@@ -193,7 +210,6 @@ footer {
 
 @media (max-width: 768px) {
     header { flex-direction: column; gap: 10px; padding: 15px; }
-    /* PERBAIKAN 1: Kecilkan Judul di HP */
     header .logo { font-size: 1.5rem; } 
     nav { gap: 15px; flex-wrap: wrap; justify-content: center; } 
     nav a { font-size: 0.9rem; }
@@ -210,7 +226,7 @@ footer {
         max-width: 400px;
     }
 
-    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; } /* Galeri jadi 1 kolom di HP */
     .location-content { flex-direction: column; text-align: center; }
     .location-map iframe { height: 300px; }
 }
@@ -304,15 +320,31 @@ footer {
 <section class="section gallery">
     <h2>Galeri Kenikmatan</h2>
     <div class="gallery-grid">
-        <img src="delivery.jpg" alt="Delivery">
-        <img src="suasana.jpg" alt="Suasana Kedai">
-        <img src="bakmispesial.jpg" alt="Bakmi Mimu Special">
-        <img src="reiview.jpg" alt="Pelanggan Bahagia">
-        <img src="pangsit.jpg" alt="Pangsit">
-        <img src="bakmicampur.jpg" alt="Bakmi Campur">
-        <img src="toko.jpg" alt="Tampak Depan Kedai Bakmi Mimu">
-        <img src="swikiaw.jpg" alt="swikiaw">
-    </div>
+        <div class="gallery-item">
+            <img src="delivery.jpg" alt="Delivery">
+        </div>
+        <div class="gallery-item">
+            <img src="suasana.jpg" alt="Suasana Kedai">
+        </div>
+        <div class="gallery-item">
+            <img src="bakmispesial.jpg" alt="Bakmi Mimu Special">
+        </div>
+        <div class="gallery-item">
+            <img src="reiview.jpg" alt="Pelanggan Bahagia">
+        </div>
+        <div class="gallery-item">
+            <img src="pangsit.jpg" alt="Pangsit">
+        </div>
+        <div class="gallery-item">
+            <img src="bakmicampur.jpg" alt="Bakmi Campur">
+        </div>
+        <div class="gallery-item">
+            <img src="toko.jpg" alt="Tampak Depan Kedai Bakmi Mimu">
+        </div>
+        <div class="gallery-item">
+            <img src="swikiaw.jpg" alt="swikiaw">
+        </div>
+        </div>
 </section>
 
 <section id="location" class="section location">
